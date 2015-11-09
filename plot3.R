@@ -1,4 +1,4 @@
-# Exploratory_Data_Analysis
+2# Exploratory_Data_Analysis
 # Assignment 1
 #
 # plot3.R
@@ -30,13 +30,14 @@ library(datasets)
 # produces plot3.png as we have seen during Week1 slides
 # but I am sure I can find a better code for that
 with(input_data, {
-plot(input_data$V2, input_data$V7, type = "l", xaxt = "n", ylab = "Energy sub meeting")
-plot(input_data$V2, input_data$V8, type = "l", col = "red", xaxt = "n", ylab = "Energy sub meeting")
-plot(input_data$V2, input_data$V9, type = "l", col = "blue", xaxt = "n", ylab = "Energy sub meeting")
-axis(1, c(0, 720, 1440), c("Thu", "Fri", "Sat"))
-legend("topright", legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lwd = 1, col = c("black", "red", "blue"))
-        }
+        plot(input_data$V2, input_data$V7, type = "l", xaxt = "n", ylab = "Energy sub meeting")
+        points(input_data$V2, input_data$V8, type = "l", col = "red", xaxt = "n")
+        points(input_data$V2, input_data$V9, type = "l", col = "blue", xaxt = "n")
+        axis(1, c(0, 720, 1440), c("Thu", "Fri", "Sat"))
+        legend("topright", legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lwd = 1, col = c("black", "red", "blue"))
+}
 )
+
 dev.copy(png, file = "plot3.png")
 dev.off()
 
